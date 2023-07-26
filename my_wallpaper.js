@@ -2,13 +2,9 @@
 let rect_width = 20;
 let rect_height = 20;
 
-let circleArray = [1, 2, 3, 4]
+let colorOffset = (Math.floor(Math.random() * 80));
+let coolDown = 6
 
-let timer = 0;
-
-
-
-// this is another change that I am making
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -22,23 +18,24 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  background(240, 255, 240); //light honeydew green colour
+  colorMode(HSB, 100);
+
+  background((Math.floor(Math.random() * 20) + colorOffset), 30, 40);
+
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  noFill();
-  strokeWeight(10);
+  strokeWeight(0);
+  colorMode(HSB, 100);
 
-  let option = 1
+  fill((Math.floor(Math.random() * 30) + colorOffset), 30, 100);
 
-  if (circleArray === undefined || circleArray.length == 0) {
-    circleArray = [1, 2, 3, 4]
+  if (coolDown == 6){
+    let option = (Math.floor(Math.random() * 4)) + 1
+    drawArc(option);
   } else {
-    option = circleArray[(Math.floor(Math.random() * 4))]
-    // circleArray.splice(option, 1)
+    coolDown += 1;
   }
-
-  drawArc(option);
 }
 
 function drawArc(num) {
@@ -52,5 +49,8 @@ function drawArc(num) {
     arc(100, 100, 200, 200, 0 + (num * 90), 90 * (num + 1));
   } else if (ifNum == 4) {
     arc(0, 100, 200, 200, 0 + (num * 90), 90 * (num + 1));
+  } else if (ifNum == 5) {
+    arc(0, 100, 400, 400, 0 + (num * 90), 90 * (num + 1));
+    coolDown = 1
   }
 }
