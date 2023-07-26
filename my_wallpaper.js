@@ -7,7 +7,8 @@ let circleArray = [1, 2, 3, 4]
 let timer = 0;
 
 
-//this is a change that I have made
+
+// this is another change that I am making
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
