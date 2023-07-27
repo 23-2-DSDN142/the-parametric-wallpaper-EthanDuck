@@ -48,7 +48,7 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
       drawArc(arcRotation, currentSquare);
     }
   } else {
-    if ((Math.floor(Math.random() * 11)) == 10 && currentSquare > 30) {
+    if ((Math.floor(Math.random() * 2))) {
       drawBigArc(arcRotation, currentSquare)
     } else {
       drawArc(arcRotation, currentSquare);
