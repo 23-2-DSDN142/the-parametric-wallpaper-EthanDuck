@@ -17,16 +17,19 @@
 var wallMeters = [];
 var wallSaved = [];
 
+// Everything now is static code!
+
 if (wallMeters === undefined || wallMeters.length === 0) {
   wallMeters = [
-    (Math.floor(Math.random() * 70)),          // [0] Color Palette Offset
-    ((Math.floor(Math.random() * 200)) + 50),  // [1] Grid Size
-    ((Math.floor(Math.random() * 5) + 1)),     // [2] Cell Shape
-    (Math.floor(Math.random() * 10)),          // [3] Grid Gap
-    (Math.floor(Math.random() * 10) + 1),      // [4] Big Ofteness
+    (Math.floor(Math.random() * 70)),         // [0] Color Palette Offset
+    ((Math.floor(Math.random() * 200)) + 50), // [1] Grid Size
+    ((Math.floor(Math.random() * 5) + 1)),    // [2] Cell Shape
+    (Math.floor(Math.random() * 10)),         // [3] Grid Gap
+    (Math.floor(Math.random() * 10) + 1),     // [4] Big Ofteness
     false
   ];
 }
+
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -48,7 +51,7 @@ function wallpaper_background() {
 }
 
 function my_symbol() {
-  strokeWeight(0)
+  strokeWeight(0);
   colorMode(HSB, 100);
 
   currentCell += 1;
@@ -85,10 +88,10 @@ function my_symbol() {
       wallMeters.pop();
       wallMeters.push(true);
 
-      print("Wallpaper Parameters: ")
+      print("Wallpaper Parameters: ");
       print(wallMeters);
 
-      print("Saved Wallpaper: ")
+      print("Saved Wallpaper: ");
       print(wallSaved);
     }
 
@@ -113,8 +116,8 @@ function my_symbol() {
 }
 
 function drawShape(rotation, currentCell, isBig) {
-  let ifRotation = rotation
-  rotation -= 1
+  let ifRotation = rotation;
+  rotation -= 1;
 
   var shapeSize = wallMeters[1] - (wallMeters[3] * 2);
   var doubleShapeSize = shapeSize * 2 - (wallMeters[3] * 2);
@@ -129,13 +132,13 @@ function drawShape(rotation, currentCell, isBig) {
     cellPrison.push(Math.round((currentCell + 1) + Math.ceil(height / wallMeters[1]) + 2));
   };
 
-  if (wallMeters[2] == 5){
+  if (wallMeters[2] == 5) {
     shapeFrenzy = true;
     wallMeters[2] = ((Math.floor(Math.random() * 4) + 1));
   }
 
   if (wallMeters[2] == 1) {
-    circle((shapeSize/2), (shapeSize/2), shapeSize);
+    circle((shapeSize / 2), (shapeSize / 2), shapeSize);
   } else if (wallMeters[2] == 2) {
     if (ifRotation == 1) {
       arc(wallMeters[3], wallMeters[3], doubleShapeSize, doubleShapeSize, 0 + (rotation * 90), 90 * (rotation + 1));
@@ -150,17 +153,17 @@ function drawShape(rotation, currentCell, isBig) {
     square(wallMeters[3], wallMeters[3], (shapeSize));
   } else if (wallMeters[2] == 4) {
     if (ifRotation == 1) {
-      triangle(wallMeters[3], wallMeters[3], wallMeters[3], shapeSize, shapeSize, (shapeSize / 2))
+      triangle(wallMeters[3], wallMeters[3], wallMeters[3], shapeSize, shapeSize, (shapeSize / 2));
     } else if (ifRotation == 2) {
-      triangle(wallMeters[3], wallMeters[3], shapeSize, wallMeters[3], (shapeSize / 2), shapeSize)
+      triangle(wallMeters[3], wallMeters[3], shapeSize, wallMeters[3], (shapeSize / 2), shapeSize);
     } else if (ifRotation == 3) {
-      triangle(shapeSize, wallMeters[3], shapeSize, shapeSize, wallMeters[3], (shapeSize / 2))
+      triangle(shapeSize, wallMeters[3], shapeSize, shapeSize, wallMeters[3], (shapeSize / 2));
     } else if (ifRotation == 4) {
-      triangle(wallMeters[3], wallMeters[3], wallMeters[3], shapeSize, shapeSize, (shapeSize / 2))
+      triangle(wallMeters[3], wallMeters[3], wallMeters[3], shapeSize, shapeSize, (shapeSize / 2));
     }
   }
 
-  if (shapeFrenzy == true){
-    wallMeters[2] = 5
+  if (shapeFrenzy == true) {
+    wallMeters[2] = 5;
   }
 }
