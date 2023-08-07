@@ -30,7 +30,6 @@ if (wallMeters === undefined || wallMeters.length === 0) {
   ];
 }
 
-
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(NINE_LANDSCAPE);
@@ -130,7 +129,7 @@ function drawShape(rotation, currentCell, isBig) {
     cellPrison.push(Math.round((currentCell + 1)));
     cellPrison.push(currentCell + Math.ceil(height / wallMeters[1]) + 2);
     cellPrison.push(Math.round((currentCell + 1) + Math.ceil(height / wallMeters[1]) + 2));
-  };
+  }
 
   if (wallMeters[2] == 5) {
     shapeFrenzy = true;
